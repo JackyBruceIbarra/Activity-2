@@ -1,0 +1,73 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+#declare 5 different vectors
+VA = np.array([8,15])
+VB = np.array([13, 0])
+VC = np.array([-6, 8])
+VD = np.array([8, 3])
+VE = np.array([-3, 1])
+
+#Addition,Subtraction
+Addition = np.add(VA, VB)
+print('The Sum of Vector A and Vector B is', Addition)
+Subtraction = np.subtract(Addition,VC)
+print('The Difference of', Addition, 'and Vector C is', Subtraction)
+
+
+#Multiplication, Division
+Multiplication = np.multiply(VB, VC)
+print('The Product of Vector B and Vector C is', Multiplication)
+Division = np.divide(Multiplication, VD)
+print('The Quotient of', Multiplication, ' and Vector D is', Division)
+
+
+#Squaring,Square root)
+Squaring = np.square(VD)
+print('The Square of Vector D is', Squaring)
+Squareroot = np.sqrt(Squaring)
+print('The Square Root of', Squaring, 'is', Squareroot)
+
+
+#Summation
+Summation = np.sum(VE)
+print('The Summation of Vector E is', Summation)
+print('_'*66)
+
+
+#Visualize
+plt.title('Visualize of Data')
+plt.xlim(-57, 50)
+plt.ylim(-57, 50)
+
+#Vector
+plt.scatter(VA[0], VA[1], label='Vector 1', c='Pink')
+plt.scatter(VB[0], VB[1], label='Vector 2', c='Red')
+plt.scatter(VC[0], VC[1], label='Vector 3', c='Green')
+plt.scatter(VD[0], VD[1], label='Vector 4', c='Blue')
+plt.scatter(VE[0], VE[1], label='Vector 5', c='Yellow')
+
+#Results
+plt.scatter(Addition[0],      Addition[1],         label='Addition',          c='tan')
+plt.scatter(Subtraction[0],   Subtraction[1],      label='Subtraction',       c='ivory')
+plt.scatter(Division[0],        Division[1],           label='Division',          c='darkmagenta')
+plt.scatter(Multiplication[0],      Multiplication[1],         label='Multiplication',    c='goldenrod')
+plt.scatter(Squaring[0],        Squaring[1],           label='Squaring',            c='Silver')
+plt.scatter(Squareroot[0],   Squareroot[1],      label='Squareroot',        c='Gold')
+
+#Resultant Vector
+plt.quiver(VA[0], VA[1], VB[0], VB[1], angles='xy', scale_units='xy', scale=1, color='lightpink')
+plt.quiver(0, 0, VA[0], VA[1], angles='xy', scale_units='xy', scale=1, color='royalblue')
+VF = VA + VB
+plt.quiver(0, 0, VF[0], VF[1], angles='xy', scale_units='xy', scale=1, color='cyan')
+
+R_mag = np.sqrt(np.sum(VA**2+VB**2))
+rise = VF[1]
+run = VF[0]
+slope = rise/run
+print('Slope is: ', slope)
+
+plt.grid()
+plt.legend()
+plt.show()
